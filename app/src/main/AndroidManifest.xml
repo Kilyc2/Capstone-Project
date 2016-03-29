@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.myepubs">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name="com.android.myepubs.activities.LinkActivity"
+            android:launchMode="singleInstance">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.android.myepubs.activities.BookListActivity"
+            android:label="@string/title_book_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.android.myepubs.activities.BookDetailActivity"
+            android:label="@string/title_book_detail"
+            android:parentActivityName="com.android.myepubs.activities.BookListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.myepubs.activities.BookListActivity" />
+        </activity>
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <data android:scheme="db-qwbz5mifusyu9ek" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.android.myepubs.data.BooksProvider"
+            android:authorities="com.android.myepubs.data" />
+
+        <activity
+            android:name="com.android.myepubs.activities.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.android.myepubs.activities.BookListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.myepubs.activities.BookListActivity" />
+        </activity>
+    </application>
+
+</manifest>
