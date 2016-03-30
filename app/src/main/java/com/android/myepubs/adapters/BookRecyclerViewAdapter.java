@@ -1,5 +1,7 @@
 package com.android.myepubs.adapters;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,12 +23,14 @@ import java.util.List;
 public class BookRecyclerViewAdapter
         extends RecyclerView.Adapter<BookRecyclerViewAdapter.ViewHolder> {
 
+    private final Activity activity;
     private final List<Book> books;
-    private boolean isTwoPane;
     private final FragmentManager fragmentManager;
+    private boolean isTwoPane;
 
-    public BookRecyclerViewAdapter(List<Book> books, boolean isTwoPane,
+    public BookRecyclerViewAdapter(Activity activity, List<Book> books, boolean isTwoPane,
                                    FragmentManager fragmentManager) {
+        this.activity = activity;
         this.books = books;
         this.fragmentManager = fragmentManager;
         this.isTwoPane = isTwoPane;
@@ -71,7 +75,10 @@ public class BookRecyclerViewAdapter
                     Context context = v.getContext();
                     Intent intent = new Intent(context, BookDetailActivity.class);
                     intent.putExtra(BookDetailFragment.ARG_BOOK, holder.book);
-                    context.startActivity(intent);
+                    ActivityOptions options = ActivityOptions
+                            .makeSceneTransitionAnimation(activity,
+                                    v.findViewById(R.id.thumbnail), "cover");
+                    context.startActivity(intent, options.toBundle());
                 }
             }
         });

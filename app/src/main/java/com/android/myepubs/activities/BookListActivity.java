@@ -35,10 +35,10 @@ public class BookListActivity extends AppCompatActivity
 
     private final static String KEY_STATE_BOOKS = "kStateBooks";
     private final static int LOADER_ID = 0;
+    protected boolean isTwoPane;
     private RecyclerView recyclerView;
     private List<Book> booksInLibrary = new ArrayList<>();
     private ProgressBar spinner;
-    protected boolean isTwoPane;
     private String sortOrder;
     private String displayMode;
     private BookRecyclerViewAdapter adapter;
@@ -59,7 +59,7 @@ public class BookListActivity extends AppCompatActivity
         recyclerView = (RecyclerView)findViewById(R.id.book_list);
         assert recyclerView != null;
         setReciclerView();
-        adapter = new BookRecyclerViewAdapter(this.booksInLibrary, this.isTwoPane,
+        adapter = new BookRecyclerViewAdapter(this, this.booksInLibrary, this.isTwoPane,
                 getSupportFragmentManager());
         recyclerView.setAdapter(adapter);
 
@@ -108,7 +108,7 @@ public class BookListActivity extends AppCompatActivity
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-
+        getLoaderManager().restartLoader(LOADER_ID, null, this);
     }
 
     @Override
