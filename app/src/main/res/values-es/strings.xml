@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">My Epubs</string>
+    <string name="action_share">Compartir</string>
+    <string name="link_button">Link a Dropbox</string>
+    <string name="pref_title_display_list">Mostrar libros</string>
+    <string name="pref_title_sort_order_list">Ordenar libros</string>
+    <string name="share_text">Debes leer este libro:</string>
+    <string name="title_activity_settings">Preferencias</string>
+    <string name="title_book_detail">Detalle del libro</string>
+    <string name="pref_header_general">Generales</string>
+    <string name="display_grid_settings">En cuadricula</string>
+    <string name="display_list_settings">En lista</string>
+    <string name="sort_order_date_settings">Por fecha</string>
+    <string name="sort_order_title_settings">Por titulo</string>
+</resources>

@@ -3,7 +3,6 @@ package com.android.myepubs.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ShareCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +12,9 @@ import android.view.View;
 import com.android.myepubs.R;
 import com.android.myepubs.fragments.BookDetailFragment;
 import com.android.myepubs.models.Book;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.plus.PlusShare;
 
 public class BookDetailActivity extends AppCompatActivity {
 
@@ -41,13 +43,17 @@ public class BookDetailActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(Intent.createChooser(ShareCompat.IntentBuilder
-                        .from(BookDetailActivity.this)
+                startActivity(new PlusShare.Builder(BookDetailActivity.this)
                         .setType("text/plain")
                         .setText(getString(R.string.share_text).concat(" ").concat(titleBook))
-                        .getIntent(), getString(R.string.action_share)));
+                        .getIntent());
             }
         });
+
+        AdView adView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("2EBE85C1126BA8EC6C46D8C2224F4F9B").build();
+        adView.loadAd(adRequest);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
