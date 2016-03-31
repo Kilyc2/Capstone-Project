@@ -57,10 +57,11 @@
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/action_share"
         android:src="@mipmap/ic_share_white_24dp"
         app:fabSize="normal"
         app:layout_anchor="@id/toolbar_layout"
-        app:layout_anchorGravity="bottom|right|end" />
+        app:layout_anchorGravity="bottom|right|end"/>
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"

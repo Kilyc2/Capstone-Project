@@ -42,11 +42,12 @@
         android:id="@+id/share_fab"
         android:layout_width="@dimen/fab_size"
         android:layout_height="@dimen/fab_size"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@mipmap/ic_share_white_24dp"
         android:layout_gravity="bottom|end"
-        app:fabSize="normal"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/action_share"
+        android:src="@mipmap/ic_share_white_24dp"
         android:visibility="gone"
+        app:fabSize="normal"
         />
 
 </android.support.design.widget.CoordinatorLayout>

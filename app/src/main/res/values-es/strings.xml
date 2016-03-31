@@ -13,4 +13,5 @@
     <string name="display_list_settings">En lista</string>
     <string name="sort_order_date_settings">Por fecha</string>
     <string name="sort_order_title_settings">Por titulo</string>
+    <string name="cover_book">portada de</string>
 </resources>

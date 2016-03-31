@@ -53,12 +53,15 @@ public class BookRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.book = books.get(position);
+        String title = books.get(position).getTitle();
         if (holder.title != null) {
-            holder.title.setText(books.get(position).getTitle());
+            holder.title.setText(title);
             holder.thumbnail.setImageBitmap(books.get(position).getThumbnail());
         } else {
             holder.thumbnail.setImageBitmap(books.get(position).getCoverItem());
         }
+        holder.thumbnail.setContentDescription(activity.getString(R.string.cover_book)
+                + " " + title);
 
         holder.bookView.setOnClickListener(new View.OnClickListener() {
             @Override
