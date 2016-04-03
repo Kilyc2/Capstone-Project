@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'MyEpubsKey'
-            keyPassword 'xxx'
+            keyPassword '1TSmyEpubsKey4ws0m3'
             storeFile file('/Users/kilyc2/Projects/MyEpubsKey.jks')
-            storePassword 'xxx'
+            storePassword '1TSmyEpubsKey4ws0m3'
         }
     }
     compileSdkVersion 23
