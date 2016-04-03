@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.android.myepubs.activities.LinkActivity"
+            android:name=".activities.LinkActivity"
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,13 +23,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.myepubs.activities.BookListActivity"
+            android:name=".activities.BookListActivity"
             android:label="@string/title_book_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.android.myepubs.activities.BookDetailActivity"
+            android:name=".activities.BookDetailActivity"
             android:label="@string/title_book_detail"
-            android:parentActivityName="com.android.myepubs.activities.BookListActivity"
+            android:parentActivityName=".activities.BookListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -51,17 +51,33 @@
         </activity>
 
         <provider
-            android:name="com.android.myepubs.data.BooksProvider"
+            android:name=".data.BooksProvider"
             android:authorities="com.android.myepubs.data" />
 
         <activity
-            android:name="com.android.myepubs.activities.SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.android.myepubs.activities.BookListActivity">
+            android:parentActivityName=".activities.BookListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.myepubs.activities.BookListActivity" />
         </activity>
+
+        <service
+            android:name=".widget.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <receiver android:name=".widget.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/my_epubs_widget_info" />
+
+            <action android:name="cover_widget" />
+        </receiver>
     </application>
 
 </manifest>

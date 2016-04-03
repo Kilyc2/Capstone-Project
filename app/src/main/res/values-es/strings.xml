@@ -14,4 +14,7 @@
     <string name="sort_order_date_settings">Por fecha</string>
     <string name="sort_order_title_settings">Por titulo</string>
     <string name="cover_book">portada de</string>
+    <string name="no_books_item">Sube .epub a tu Dropbox</string>
+    <string name="add_widget">Incluye widget</string>
+    <string name="title_widget">TU BIBLIOTECA</string>
 </resources>
