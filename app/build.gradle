@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'MyEpubsKey'
             keyPassword '1TSmyEpubsKey4ws0m3'
-            storeFile file('/Users/kilyc2/Projects/MyEpubsKey.jks')
+            storeFile file('./MyEpubs/MyEpubsKey.jks')
             storePassword '1TSmyEpubsKey4ws0m3'
         }
     }
